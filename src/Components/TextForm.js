@@ -25,11 +25,11 @@ export default function TextForm(props) {
         setText(newText);       
      }
 
-    //  const speak = () => {
-    //     let msg = new SpeechSynthesisUtterance();
-    //     msg.text = text;
-    //     window.speechSynthesis.speak(msg);
-    //   }
+    const handleExtraSpaces = ()=> {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" ")); 
+        
+    }
       
    const handleOnChange = (event) => {
       //console.log("On Change");
@@ -55,7 +55,7 @@ export default function TextForm(props) {
         <button className='btn btn-success' onClick={handleUpClick}>Convert to UpperCase</button>
         <button className='btn btn-info mx-2' onClick={handleLowClick}>Convert to LowerCase</button>
         <button className='btn btn-warning mx-2' onClick={handleClearClick}>Clear</button>
-        {/* <button className="btn btn-warning mx-2" onClick={speak}>Speak</button> */}
+        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
 
     <div className="container my-3">
